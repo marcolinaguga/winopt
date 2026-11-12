@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace OtimizadorWindows
+namespace Winopt
 {
     /// <summary>Execução silenciosa de utilitários do Windows, com captura da saída.</summary>
     internal static class Processos

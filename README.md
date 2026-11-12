@@ -1,4 +1,4 @@
-# Otimizador do Windows
+# Winopt
 
 Aplicativo desktop para limpeza e manutenção do Windows. Reúne em uma única janela as ferramentas nativas do sistema (SFC, DISM, CHKDSK, Limpeza de Disco, desfragmentador) e limpezas de arquivos temporários e caches, com log em tempo real.
 
@@ -34,7 +34,7 @@ Feito em C# com WinForms para .NET Framework 4.8, sem pacotes NuGet nem bibliote
 - **Ponto de restauração**: criado antes de reparos, se a opção estiver marcada.
 - Barra de progresso com a porcentagem real do SFC, DISM e CHKDSK.
 - Resumo do espaço livre antes e depois.
-- Log de cada execução salvo em `%LOCALAPPDATA%\OtimizadorWindows\Logs`.
+- Log de cada execução salvo em `%LOCALAPPDATA%\Winopt\Logs`.
 
 ## O que o programa não faz
 
@@ -48,9 +48,9 @@ Não há limpeza de Registro, "liberador de memória" nem desativação de servi
 
 ## Como compilar
 
-**Sem Visual Studio:** execute `compilar.bat`. Ele usa o compilador C# que acompanha o .NET Framework e gera `bin\OtimizadorWindows.exe`.
+**Sem Visual Studio:** execute `compilar.bat`. Ele usa o compilador C# que acompanha o .NET Framework e gera `bin\Winopt.exe`.
 
-**Com Visual Studio:** abra `OtimizadorWindows.csproj`, selecione a configuração `Release` e compile (`Ctrl+Shift+B`). É necessário o workload "Desenvolvimento para desktop com .NET". O executável sai em `bin\Release`.
+**Com Visual Studio:** abra `Winopt.csproj`, selecione a configuração `Release` e compile (`Ctrl+Shift+B`). É necessário o workload "Desenvolvimento para desktop com .NET". O executável sai em `bin\Release`.
 
 ## Estrutura do código
 

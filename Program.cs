@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace OtimizadorWindows
+namespace Winopt
 {
     internal static class Program
     {

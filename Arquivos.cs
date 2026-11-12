@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
-namespace OtimizadorWindows
+namespace Winopt
 {
     /// <summary>Contadores de uma limpeza de arquivos.</summary>
     internal sealed class ResultadoLimpeza

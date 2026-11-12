@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6B0E5C0B-7C5B-4F0E-9E63-3B8E2B0C4A11}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>OtimizadorWindows</RootNamespace>
-    <AssemblyName>OtimizadorWindows</AssemblyName>
+    <RootNamespace>Winopt</RootNamespace>
+    <AssemblyName>Winopt</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

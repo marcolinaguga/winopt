@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OtimizadorWindows
+namespace Winopt
 {
     /// <summary>
     /// Janela principal: menu de ferramentas agrupadas, botões de ação, progresso e console de log.
@@ -56,7 +56,7 @@ namespace OtimizadorWindows
             {
                 return Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                    "OtimizadorWindows", "Logs");
+                    "Winopt", "Logs");
             }
         }
 
@@ -68,7 +68,7 @@ namespace OtimizadorWindows
         {
             SuspendLayout();
 
-            Text = "Otimizador do Windows";
+            Text = "Winopt";
             Font = new Font("Segoe UI", 9F);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;

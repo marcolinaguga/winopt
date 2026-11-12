@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 
-namespace OtimizadorWindows
+namespace Winopt
 {
     /// <summary>Tipo de mensagem do log (define a cor exibida no console).</summary>
     internal enum TipoLog

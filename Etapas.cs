@@ -7,7 +7,7 @@ using System.ServiceProcess;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 
-namespace OtimizadorWindows
+namespace Winopt
 {
     /// <summary>Grupo em que a etapa aparece na interface.</summary>
     internal enum GrupoEtapa
@@ -652,7 +652,7 @@ namespace OtimizadorWindows
 
             // Em caso de erro, mostra só a mensagem (sem o rastreamento do PowerShell) e devolve código 1.
             const string comando = "$ProgressPreference='SilentlyContinue'; " +
-                "try { Checkpoint-Computer -Description 'Otimizador do Windows' -RestorePointType MODIFY_SETTINGS -ErrorAction Stop } " +
+                "try { Checkpoint-Computer -Description 'Winopt' -RestorePointType MODIFY_SETTINGS -ErrorAction Stop } " +
                 "catch { Write-Output $_.Exception.Message; exit 1 }";
 
             int codigo = await Processos.ExecutarAsync(powershell,
