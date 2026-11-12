@@ -1,0 +1,8 @@
+# Saídas de compilação
+bin/
+obj/
+
+# Arquivos locais do Visual Studio
+.vs/
+*.user
+*.suo
