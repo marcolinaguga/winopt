@@ -1,0 +1,59 @@
+# Publica uma Release com o executável sempre que uma tag de versão (ex.: v1.0.0) é enviada.
+# O .exe é compilado aqui, a partir do código do repositório, e não na máquina de alguém.
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compilar
+        shell: cmd
+        run: call compilar.bat
+
+      - name: Gerar SHA-256
+        shell: pwsh
+        run: |
+          $hash = (Get-FileHash bin\Winopt.exe -Algorithm SHA256).Hash.ToLower()
+          "$hash  Winopt.exe" | Out-File bin\Winopt.exe.sha256 -Encoding ascii
+          "SHA256=$hash" >> $env:GITHUB_ENV
+
+      - name: Publicar release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $notas = @"
+          ## Como usar
+
+          1. Baixe **Winopt.exe** logo abaixo, em *Assets*.
+          2. Execute o arquivo. Não há instalação.
+          3. Aceite o pedido de permissão de administrador: ele é necessário para as ferramentas de reparo e limpeza do sistema.
+
+          **Requisitos:** Windows 10 ou 11. Nada mais precisa ser instalado.
+
+          ## Aviso do Windows ao abrir
+
+          O executável não tem assinatura digital, então o Windows pode exibir "O Windows protegeu o computador". Para continuar, clique em **Mais informações** e depois em **Executar assim mesmo**.
+
+          ## Dica
+
+          Na primeira vez, marque as ferramentas e clique em **Analisar**: o programa mostra quanto espaço seria liberado, sem apagar nada.
+
+          ## Verificação do arquivo
+
+          Este executável foi compilado automaticamente a partir do código deste repositório.
+
+          SHA-256: ``$env:SHA256``
+          "@ -replace '(?m)^          ', ''
+          $notas | Out-File notas.md -Encoding utf8
+          gh release create $env:GITHUB_REF_NAME bin\Winopt.exe bin\Winopt.exe.sha256 --title "Winopt $env:GITHUB_REF_NAME" --notes-file notas.md

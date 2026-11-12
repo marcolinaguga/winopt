@@ -11,7 +11,7 @@ if not exist bin mkdir bin
 "%CSC%" /nologo /codepage:65001 /target:winexe /platform:anycpu /optimize+ ^
   /win32manifest:app.manifest /win32icon:app.ico /out:bin\Winopt.exe ^
   /reference:System.dll /reference:System.Core.dll /reference:System.Drawing.dll /reference:System.Windows.Forms.dll /reference:System.ServiceProcess.dll ^
-  Program.cs Form1.cs Contexto.cs Processos.cs Arquivos.cs Etapas.cs
+  Program.cs AssemblyInfo.cs Form1.cs Contexto.cs Processos.cs Arquivos.cs Etapas.cs
 
 if errorlevel 1 (
   echo.

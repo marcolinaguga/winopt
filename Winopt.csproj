@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
+    <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Contexto.cs" />
     <Compile Include="Processos.cs" />
     <Compile Include="Arquivos.cs" />
