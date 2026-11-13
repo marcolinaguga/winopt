@@ -56,4 +56,11 @@ jobs:
           SHA-256: ``$env:SHA256``
           "@ -replace '(?m)^          ', ''
           $notas | Out-File notas.md -Encoding utf8
-          gh release create $env:GITHUB_REF_NAME bin\Winopt.exe bin\Winopt.exe.sha256 --title "Winopt $env:GITHUB_REF_NAME" --notes-file notas.md
+          # Se a release desta tag já existir (tag reenviada), atualiza os arquivos e as notas em vez de falhar.
+          gh release view $env:GITHUB_REF_NAME *> $null
+          if ($LASTEXITCODE -eq 0) {
+            gh release upload $env:GITHUB_REF_NAME bin\Winopt.exe bin\Winopt.exe.sha256 --clobber
+            gh release edit $env:GITHUB_REF_NAME --notes-file notas.md
+          } else {
+            gh release create $env:GITHUB_REF_NAME bin\Winopt.exe bin\Winopt.exe.sha256 --title "Winopt $env:GITHUB_REF_NAME" --notes-file notas.md
+          }
